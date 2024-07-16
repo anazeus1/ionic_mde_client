@@ -1,0 +1,36 @@
+<ion-content class="ion-padding">
+  <h1>Nice to see you again</h1>
+
+  <form>
+
+
+
+    <ion-input type="email" label="email" label-placement="stacked" fill="outline"></ion-input>
+    <br/>
+    <ion-input type="password" label="password" label-placement="stacked" fill="outline"></ion-input>
+
+
+
+
+
+    <ion-item lines="none">
+      <ion-checkbox slot="start"></ion-checkbox>
+      <ion-label>Remember me</ion-label>
+      <ion-note slot="end" color="primary">Forgot password?</ion-note>
+    </ion-item>
+
+    <ion-button expand="block" color="primary">Sign in</ion-button>
+    <ion-input (formControlName)=""></ion-input>
+
+    <ion-button expand="block" fill="outline">
+      <ion-icon slot="start" name="logo-ionic"></ion-icon>
+      Sign in with Google
+    </ion-button>
+
+    <p class="ion-text-center">
+      Don't have an account? <a href="#">Sign up now</a>
+    </p>
+  </form>
+
+
+</ion-content>

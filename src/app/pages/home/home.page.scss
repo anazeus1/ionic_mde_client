@@ -1,0 +1,58 @@
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.calendar-days {
+  text-align: center;
+}
+
+.calendar-days .active {
+  background-color: var(--ion-color-primary);
+  color: white;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+}
+
+.schedule-item {
+  border-left: 4px solid;
+  margin-bottom: 10px;
+}
+
+.mathematics {
+  border-color: #4CAF50;
+  height:400px;
+}
+
+.biology {
+  border-color: #2196F3;
+}
+
+.geography {
+  border-color: #FFC107;
+}
+
+ion-item-divider {
+  --background: transparent;
+  font-size: 12px;
+  min-height: 20px;
+}
+
+ion-tab-bar {
+  --background: white;
+}
+.scrolling-wrapper {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+
+  .card {
+    display: inline-block;
+  }
+}
