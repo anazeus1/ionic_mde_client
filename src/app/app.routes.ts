@@ -1,11 +1,7 @@
 import { Routes } from '@angular/router';
 
 export const routes: Routes = [
-  {
-    path: '',
-    redirectTo: 'folder/inbox',
-    pathMatch: 'full',
-  },
+
 
   {
     path: 'loader',
@@ -20,7 +16,7 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/register/register.page').then( m => m.RegisterPage)
   },
   {
-    path: 'home',
+    path: '',
     loadComponent: () => import('./pages/home/home.page').then( m => m.HomePage)
   },
 ];
