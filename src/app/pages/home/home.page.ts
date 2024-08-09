@@ -1,27 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import {
-  IonButton,
-  IonCol,
-  IonContent, IonDatetime,
-  IonHeader,
-  IonIcon, IonItem, IonItemDivider, IonItemGroup, IonLabel,
-  IonList, IonRow,
-  IonTabBar,
-  IonTabButton, IonText,
-  IonTitle,
-  IonToolbar
-} from '@ionic/angular/standalone';
+
 import {ActivityComponent} from "../../components/activity/activity.component";
 import {Activity} from "../../models/activity";
+import {IonicModule} from "@ionic/angular";
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.page.html',
   styleUrls: ['./home.page.scss'],
   standalone: true,
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonTabBar, IonTabButton, IonIcon, IonList, IonRow, IonCol, IonItemGroup, IonItemDivider, IonLabel, IonItem, IonText, IonButton, IonDatetime, ActivityComponent]
+  imports: [ CommonModule, FormsModule,  ActivityComponent, IonicModule]
 })
 export class HomePage implements OnInit {
   activities:Activity[]=[
@@ -33,28 +23,42 @@ export class HomePage implements OnInit {
   ];
   colors = ["Red", "Blue", "White"];
   currentDay=this.activities[0].begin.getTime()
-  emptyslot(index:number){
+  emptySlot(index:number){
     let emptyPeriod:number;
-    if(index<this.activities.length-1){
+    if (index==0){
+
+      let midnight:Date=new Date("2012-04-23T00:00:00.511Z")
+      emptyPeriod=this.getPeriod(midnight,this.activities[0].begin);
+    }
+    else {
       //it is the differnce between the beggining of the next activity and the ending of this one in minutes
-      emptyPeriod= (this.activities[index+1].begin.getTime()-this.activities[index].end.getTime())/(1000*60);
+      emptyPeriod= this.getPeriod(this.activities[index-1].end,this.activities[index].begin);
 
     }
     //if it is the last activity just get the remaining minues till midnight
 
-    else{
-      debugger;
 
-      let hourMinutes=this.activities[index].end.getHours()*60;
-      let minutes=this.activities[index].end.getMinutes();
-      emptyPeriod= 1440-(hourMinutes+minutes)
-    }
-    debugger;
     return emptyPeriod;
 
 
   }
+  lastEmptySlot(){
+
+    let hourMinutes=this.activities[this.activities.length-1].end.getHours()*60;
+    let minutes=this.activities[this.activities.length-1].end.getMinutes();
+    return  1440-(hourMinutes+minutes)
+
+
+  }
   constructor() { }
+  private getPeriod (begin:Date,end:Date):number{
+    return (end.getTime() -begin.getTime())/(1000*60);
+
+  }
+  getDate( date:any){
+    debugger
+    console.log(date);
+  }
 
   ngOnInit() {
     this.activities.length

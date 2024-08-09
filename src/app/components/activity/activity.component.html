@@ -1,5 +1,21 @@
-<section style='height:{{activity1.duration()*2}}px;border:2px solid'>
-  <h6 >{{activity1.name}}</h6>
+<section style='height:{{activity.duration()*2}}px;border:2px solid'>
+  <ion-grid class="activity">
+    <ion-row>
+      <ion-col>
+        <ion-row>
+          {{ activity.begin.getHours() }}:{{ activity.begin.getMinutes() }}
+        </ion-row>
+        <ion-row>
+          {{ activity.end.getHours() }}:{{ activity.end.getMinutes() }}
+        </ion-row>
+      </ion-col>
+      <ion-col>
+        <div >{{activity.name}}</div>
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
+
 </section>
 
 

@@ -1,7 +1,22 @@
-<ion-content style="height:100%">
+<ion-content >
 
-  @for(activity of activities; track activity.id;let index=$index){
-    <app-activity [activity1]="activity"></app-activity>
-    <div style="height:{{emptyslot(index)*2}}px"></div>
-  }
+
+
+  <ion-datetime presentation="date" [preferWheel]="true" #date (ionChange)="getDate(date.value)"></ion-datetime>
+  <div>
+      @for(activity of activities; track activity.id;let index=$index){
+
+              <div style="height:{{emptySlot(index)*2}}px"></div>
+
+              <app-activity [activity]="activity"></app-activity>
+
+
+      }
+  </div>
+  <div style="height: {{lastEmptySlot()*2}}px"></div>
+
+
+
+
+
 </ion-content>
