@@ -30,9 +30,15 @@ export class AddActivityPage implements OnInit {
   add(name: string | number | null | undefined, description: string | number | null | undefined):void {
     console.log("clicked"+name+description);
   }
-  log(date:IonDatetimeButton){
+  CheckEndTime(event: any){
     debugger
-    console.log(date.datetime);
+    console.log(event.detail);
+    console.log("jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj");
+  }
+  checkBeginTime(date: any){
+    debugger
+    console.log(date);
+    console.log("jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj");
   }
 
 }

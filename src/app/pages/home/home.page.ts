@@ -68,9 +68,9 @@ export class HomePage implements OnInit{
     return (end.getTime() -begin.getTime())/(1000*60);
 
   }
-  getDate( date:any){
-    debugger
-    console.log(date);
+  getDate( event: any){
+
+    console.log(event);
   }
 
 

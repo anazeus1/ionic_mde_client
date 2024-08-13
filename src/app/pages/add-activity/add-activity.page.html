@@ -21,7 +21,7 @@
   <br/>
   <ion-item>
     <ion-label>Begin</ion-label>
-    <ion-datetime-button #dateBegin slot ="end" datetime="time" (change)="log(dateBegin)" ></ion-datetime-button>
+    <ion-datetime-button #dateBegin slot ="end" datetime="time"  ></ion-datetime-button>
   </ion-item>
   <ion-item>
     <ion-label>End</ion-label>
@@ -31,7 +31,13 @@
 
   <ion-modal [keepContentsMounted]="true">
     <ng-template>
-      <ion-datetime   #dateBegin id="time" presentation="time"></ion-datetime>
+      <ion-datetime   #dateBegin id="timeBegin" presentation="time" (ionChange)="checkBeginTime(dateBegin)"></ion-datetime>
+    </ng-template>gin
+
+  </ion-modal>
+  <ion-modal [keepContentsMounted]="true">
+    <ng-template>
+      <ion-datetime   #dateBegin id="timeEnd" presentation="time" (ionChange)="log($event)"></ion-datetime>
     </ng-template>
 
   </ion-modal>
