@@ -1,12 +1,12 @@
 export class Activity {
   id: number ;
-  name: string ;
+  name: string |number;
   begin: Date;
   end: Date ;
-  description: string ;
+  description: string |number;
   color: string;
 
-  constructor(id:number,name:string, begin:Date,end:Date,description:string,color:string) {
+    constructor(id: number, name: string | number, begin: Date, end: Date, description: string | number, color: string) {
     this.id=id;
     this.name=name;
 

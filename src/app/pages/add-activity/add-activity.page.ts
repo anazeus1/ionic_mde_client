@@ -12,6 +12,7 @@ import {
   IonTitle,
   IonToolbar
 } from '@ionic/angular/standalone';
+import {Activity} from "../../models/activity";
 
 @Component({
   selector: 'app-add-activity',
@@ -22,23 +23,25 @@ import {
 })
 export class AddActivityPage implements OnInit {
 
+  beginTime!:Date;
+  endTime!:Date;
+  color="green";
   constructor() { }
 
   ngOnInit() {
   }
 
-  add(name: string | number | null | undefined, description: string | number | null | undefined):void {
-    console.log("clicked"+name+description);
+  add(name: string|number, description: string|number):void {
+    let a=new Activity(1,name,this.beginTime,this.endTime,description,this.color)
+    console.log(a);
   }
-  CheckEndTime(event: any){
+  checkEndTime(time: any){
     debugger
-    console.log(event.detail);
-    console.log("jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj");
+    this.endTime=time;
   }
-  checkBeginTime(date: any){
+  checkBeginTime(time: any){
     debugger
-    console.log(date);
-    console.log("jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj");
+    this.beginTime=time;
   }
 
 }

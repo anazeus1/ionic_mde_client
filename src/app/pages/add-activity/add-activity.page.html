@@ -13,36 +13,43 @@
   <br/>
 
 
-  <ion-input #name type="text" label="name" label-placement="stacked" fill="outline"></ion-input>
+  <ion-input #name
+             required
+             type="text"
+             label="name"
+             label-placement="stacked"
+             fill="outline"
+             placeholder="type activity name"></ion-input>
   <br/>
-  <ion-input #description type="text" label="description" label-placement="stacked" fill="outline"></ion-input>
+  <ion-input #description type="text" label="description" label-placement="stacked" fill="outline" placeholder="type activity description"></ion-input>
   <br/>
   <ion-input type="text" label="color" label-placement="stacked" fill="outline"></ion-input>
   <br/>
   <ion-item>
     <ion-label>Begin</ion-label>
-    <ion-datetime-button #dateBegin slot ="end" datetime="time"  ></ion-datetime-button>
+    <ion-datetime-button slot ="end" datetime="timeBegin"  ></ion-datetime-button>
   </ion-item>
   <ion-item>
     <ion-label>End</ion-label>
-    <ion-datetime-button  slot ="end" datetime="time"></ion-datetime-button>
+    <ion-datetime-button  slot ="end" datetime="timeEnd"></ion-datetime-button>
   </ion-item>
 
 
   <ion-modal [keepContentsMounted]="true">
     <ng-template>
-      <ion-datetime   #dateBegin id="timeBegin" presentation="time" (ionChange)="checkBeginTime(dateBegin)"></ion-datetime>
+
+      <ion-datetime   #beginTime id="timeBegin" presentation="time" (ionChange)="checkBeginTime(beginTime)"></ion-datetime>
     </ng-template>gin
 
   </ion-modal>
   <ion-modal [keepContentsMounted]="true">
     <ng-template>
-      <ion-datetime   #dateBegin id="timeEnd" presentation="time" (ionChange)="log($event)"></ion-datetime>
+      <ion-datetime   #endTime id="timeEnd" presentation="time" (ionChange)="checkEndTime(endTime)"></ion-datetime>
     </ng-template>
 
   </ion-modal>
 
-  <ion-button (click)="add(name.value,description.value)">Add</ion-button>
+  <ion-button (click)="add(name.value??'',description.value?? '')">Add</ion-button>
 
 
 </ion-content>

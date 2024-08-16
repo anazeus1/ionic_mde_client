@@ -28,10 +28,7 @@ export class HomePage implements OnInit{
 
 
   activities:Activity[]=[
-    new Activity(1, "GTI", new Date("2012-04-23T08:30:43.511Z"), new Date("2012-04-23T08:45:43.511Z"),
-      "string", "red"),new Activity(2, "GTI", new Date("2012-04-23T11:25:43.511Z"), new Date("2012-04-23T18:25:43.511Z"),
-      "string", "red"),new Activity(3, "GTI", new Date("2012-04-23T20:25:43.511Z"), new Date("2012-04-23T21:21:43.511Z"),
-      "string", "red"),
+    new Activity(1, "GTI", new Date("2012-04-23T08:30:43.511Z"), new Date("2012-04-23T08:45:43.511Z"), "string", "red"),new Activity(2, "GTI", new Date("2012-04-23T11:25:43.511Z"), new Date("2012-04-23T18:25:43.511Z"), "string", "red"),new Activity(3, "GTI", new Date("2012-04-23T20:25:43.511Z"), new Date("2012-04-23T21:21:43.511Z"), "string", "red"),
 
   ];
   colors = ["Red", "Blue", "White"];
